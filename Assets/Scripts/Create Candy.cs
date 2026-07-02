@@ -5,12 +5,41 @@ public class CreateCandy : MonoBehaviour
 {
     private int CandyCount = 0;
     public GameObject CandyPrefab;
+    public GameObject[] CandyPrefabs;
 
     void AddCandy()
     {
         CandyCount = CandyCount + 1;
         Debug.Log(CandyCount);
-        GameObject createPrefab = Instantiate(CandyPrefab);
+        int rand = Random.Range(0, 100);
+        int CandyType = 0;
+
+        if(rand < 50)
+        {
+            CandyType = 0;
+        }
+
+        else if(rand < 60)
+        {
+            CandyType = 1;
+        }
+
+        else if(rand < 70)
+        {
+            CandyType = 2;
+        }
+
+        else if(rand < 80)
+        {
+            CandyType = 3;
+        }
+
+        else if(rand < 99)
+        {
+            CandyType = 4;
+        }
+
+            GameObject createPrefab = Instantiate(CandyPrefabs[CandyType]);
         createPrefab.transform.position = this.transform.position;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
