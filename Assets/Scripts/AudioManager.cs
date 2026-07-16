@@ -1,29 +1,51 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioSource audioSource;
-    public AudioSource secondAudioSource;
+    public static AudioManager instance;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    private AudioSource audioSource;
+    private AudioSource seAudioSource;
     public AudioClip[] seAudioClips;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void SEPlay(int i)
-    {
-        audioSource.clip = seAudioClips[i];
-        if(audioSource.isPlaying == false)
+    { 
+        if(seAudioSource == null)
         {
-            audioSource.Play();
-        }else
-        {
-            secondAudioSource.clip = seAudioClips[i];
-            secondAudioSource.Play();
+            seAudioSource = this.gameObject.AddComponent<AudioSource>();
         }
-        
-    }
+        seAudioSource.clip = seAudioClips[i];
+        seAudioSource.Play();
 
-    // Update is called once per frame
-    void Update()
+    }
+       
+        public AudioClip[] bgmAudioClips;
+    private AudioSource bgmAudioSource;
+
+    public void BGMPlay()
     {
-        
+        if(bgmAudioSource == null)
+        {
+            bgmAudioSource = this.gameObject.AddComponent<AudioSource>();
+        }
+        bgmAudioSource.clip = bgmAudioClips[0];
+        bgmAudioSource.Play();
+        bgmAudioSource.loop = true;
+    }
+    void Start()
+    {
+        BGMPlay();
     }
 }

@@ -9,9 +9,9 @@ public class StageOut : MonoBehaviour
     public AudioManager audioManager;
     void OnTriggerEnter(Collider other)
     {
-        audioManager.SEPlay(0);
+        AudioManager.instance.SEPlay(0);
 
-        Score = Score + 1;
+        Score += 1;
         scoreText.text = $"スコア：{Score}";
         //Debug.Log($"{other.name}がすり抜けた");
         Destroy(other.gameObject);

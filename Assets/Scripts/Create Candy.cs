@@ -13,7 +13,7 @@ public class CreateCandy : MonoBehaviour
 
     void AddCandy()
     {
-        audioManager.SEPlay(1);
+        AudioManager.instance.SEPlay(1);
 
         CandyCount = CandyCount + 1;
         Debug.Log(CandyCount);
