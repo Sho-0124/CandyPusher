@@ -11,7 +11,7 @@ public class CreateCandy : MonoBehaviour
 
     public AudioManager audioManager;
 
-    void AddCandy()
+    public void AddCandy()
     {
         AudioManager.instance.SEPlay(1);
 
