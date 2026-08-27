@@ -160,4 +160,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6f3f1aae58183d40908f5be31656bcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  itemName: "\u30E1\u30ED\u30F3\u5473"
+  itemName: "\u30AD\u30A6\u30A4\u5473"
